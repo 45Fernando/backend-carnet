@@ -9,3 +9,16 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+alias Osunsa.Roles.Rol
+
+# Seed de Roles
+
+# Roles
+roles_data = [
+  %Role{roleName: "admin"},
+  %Role{roleName: "afiliado"}
+]
+
+Enum.each(roles_data, fn data ->
+  Repo.insert!(data)
+end)

@@ -1,0 +1,5 @@
+<h1>Edit Rol</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.rol_path(@conn, :update, @rol)) %>
+
+<span><%= link "Back", to: Routes.rol_path(@conn, :index) %></span>

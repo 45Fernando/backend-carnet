@@ -17,12 +17,13 @@ defmodule OsunsaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/roles", RolController
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", OsunsaWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", OsunsaWeb do
+     pipe_through :api
+  end
 
   # Enables LiveDashboard only for development
   #
