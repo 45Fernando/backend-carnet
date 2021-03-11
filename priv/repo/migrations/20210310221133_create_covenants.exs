@@ -1,8 +1,8 @@
-defmodule Osunsa.Repo.Migrations.CreateRoles do
+defmodule Osunsa.Repo.Migrations.CreateCovenants do
   use Ecto.Migration
 
   def change do
-    create table(:roles) do
+    create table(:covenants) do
       add :name, :string
 
       timestamps()

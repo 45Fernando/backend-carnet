@@ -1,0 +1,5 @@
+<h1>Edit Affiliate</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.affiliate_path(@conn, :update, @affiliate)) %>
+
+<span><%= link "Back", to: Routes.affiliate_path(@conn, :index) %></span>

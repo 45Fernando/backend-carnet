@@ -3,7 +3,9 @@ defmodule Osunsa.Roles.Rol do
   import Ecto.Changeset
 
   schema "roles" do
-    field :nombre, :string
+    field :name, :string
+
+    many_to_many(:affiliates, Osunsa.Affiliates.Affiliate, join_through: "affiliates_roles", on_replace: :delete)
 
     timestamps()
   end
@@ -11,7 +13,7 @@ defmodule Osunsa.Roles.Rol do
   @doc false
   def changeset(rol, attrs) do
     rol
-    |> cast(attrs, [:nombre])
-    |> validate_required([:nombre])
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
   end
 end

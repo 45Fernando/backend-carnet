@@ -1,0 +1,13 @@
+<h1>Show Covenant</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @covenant.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.covenant_path(@conn, :edit, @covenant) %></span>
+<span><%= link "Back", to: Routes.covenant_path(@conn, :index) %></span>

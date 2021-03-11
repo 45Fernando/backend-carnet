@@ -11,7 +11,7 @@
   <tbody>
 <%= for rol <- @roles do %>
     <tr>
-      <td><%= rol.nombre %></td>
+      <td><%= rol.name %></td>
 
       <td>
         <span><%= link "Show", to: Routes.rol_path(@conn, :show, rol) %></span>

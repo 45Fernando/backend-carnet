@@ -18,6 +18,8 @@ defmodule OsunsaWeb.Router do
 
     get "/", PageController, :index
     resources "/roles", RolController
+    resources "/covenants", CovenantController
+    resources "/affiliates", AffiliateController
   end
 
   # Other scopes may use custom stacks.

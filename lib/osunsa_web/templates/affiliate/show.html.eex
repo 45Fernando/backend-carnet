@@ -1,0 +1,33 @@
+<h1>Show Affiliate</h1>
+
+<ul>
+
+  <li>
+    <strong>Dni:</strong>
+    <%= @affiliate.dni %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @affiliate.name %>
+  </li>
+
+  <li>
+    <strong>Correo:</strong>
+    <%= @affiliate.correo %>
+  </li>
+
+  <li>
+    <strong>Avatar:</strong>
+    <%= @affiliate.avatar %>
+  </li>
+
+  <li>
+    <strong>Password hash:</strong>
+    <%= @affiliate.password_hash %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.affiliate_path(@conn, :edit, @affiliate) %></span>
+<span><%= link "Back", to: Routes.affiliate_path(@conn, :index) %></span>

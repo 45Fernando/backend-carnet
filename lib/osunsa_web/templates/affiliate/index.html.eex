@@ -1,0 +1,34 @@
+<h1>Listing Affiliates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dni</th>
+      <th>Name</th>
+      <th>Correo</th>
+      <th>Avatar</th>
+      <th>Password hash</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for affiliate <- @affiliates do %>
+    <tr>
+      <td><%= affiliate.dni %></td>
+      <td><%= affiliate.name %></td>
+      <td><%= affiliate.correo %></td>
+      <td><%= affiliate.avatar %></td>
+      <td><%= affiliate.password_hash %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.affiliate_path(@conn, :show, affiliate) %></span>
+        <span><%= link "Edit", to: Routes.affiliate_path(@conn, :edit, affiliate) %></span>
+        <span><%= link "Delete", to: Routes.affiliate_path(@conn, :delete, affiliate), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Affiliate", to: Routes.affiliate_path(@conn, :new) %></span>

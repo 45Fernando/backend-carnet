@@ -1,0 +1,5 @@
+<h1>New Covenant</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.covenant_path(@conn, :create)) %>
+
+<span><%= link "Back", to: Routes.covenant_path(@conn, :index) %></span>

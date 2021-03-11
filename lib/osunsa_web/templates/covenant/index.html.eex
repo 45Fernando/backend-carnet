@@ -1,0 +1,26 @@
+<h1>Listing Covenants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for covenant <- @covenants do %>
+    <tr>
+      <td><%= covenant.name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.covenant_path(@conn, :show, covenant) %></span>
+        <span><%= link "Edit", to: Routes.covenant_path(@conn, :edit, covenant) %></span>
+        <span><%= link "Delete", to: Routes.covenant_path(@conn, :delete, covenant), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Covenant", to: Routes.covenant_path(@conn, :new) %></span>
