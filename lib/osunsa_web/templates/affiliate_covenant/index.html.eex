@@ -1,0 +1,28 @@
+<h1>Listing Affiliatescovenants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha alta</th>
+      <th>Fecha baja</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for affiliate_covenant <- @affiliatescovenants do %>
+    <tr>
+      <td><%= affiliate_covenant.fecha_alta %></td>
+      <td><%= affiliate_covenant.fecha_baja %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.affiliate_covenant_path(@conn, :show, affiliate_covenant) %></span>
+        <span><%= link "Edit", to: Routes.affiliate_covenant_path(@conn, :edit, affiliate_covenant) %></span>
+        <span><%= link "Delete", to: Routes.affiliate_covenant_path(@conn, :delete, affiliate_covenant), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Affiliate covenant", to: Routes.affiliate_covenant_path(@conn, :new) %></span>

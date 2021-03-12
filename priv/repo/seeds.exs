@@ -11,8 +11,8 @@
 # and so on) as they will fail if something goes wrong.
 alias Osunsa.Repo
 alias Osunsa.Roles.Rol
-
-# Seed de Roles
+alias Osunsa.Covenants.Covenant
+alias Osunsa.Affiliates.Affiliate
 
 # Roles
 roles_data = [
@@ -21,5 +21,45 @@ roles_data = [
 ]
 
 Enum.each(roles_data, fn data ->
+  Repo.insert!(data)
+end)
+
+# Convenios
+convenios_data = [
+  %Covenant{
+    name: "Personal de UNSa",
+    description: ""
+  },
+  %Covenant{
+    name: "Personal de OSUNSa",
+    description: ""
+  },
+  %Covenant{
+    name: "Personal de CIUNSa",
+    description: ""
+  },
+  %Covenant{
+    name: "Reciprocidad",
+    description: ""
+  },
+  %Covenant{
+    name: "Adherentes",
+    description: ""
+  },
+  %Covenant{
+    name: "Jubilados",
+    description: ""
+  },
+  %Covenant{
+    name: "Transitorio",
+    description: ""
+  },
+  %Covenant{
+    name: "Conicet",
+    description: ""
+  }
+]
+
+Enum.each(convenios_data, fn data ->
   Repo.insert!(data)
 end)

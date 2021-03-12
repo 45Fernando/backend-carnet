@@ -1,6 +1,7 @@
 defmodule OsunsaWeb.AffiliateController do
   use OsunsaWeb, :controller
 
+  alias Osunsa.Repo
   alias Osunsa.Affiliates
   alias Osunsa.Affiliates.Affiliate
 
@@ -58,5 +59,27 @@ defmodule OsunsaWeb.AffiliateController do
     conn
     |> put_flash(:info, "Affiliate deleted successfully.")
     |> redirect(to: Routes.affiliate_path(conn, :index))
+  end
+
+  #Funcion para comparar el correo y la contraseña con la base de datos y autorizar el ingreso
+  #O no.
+  def login_email_password(nil, _password) do
+    {:error, :invalid}
+  end
+
+  def login_email_password(_mail, nil) do
+    {:error, :invalid}
+  end
+
+  def login_email_password(mail, password) do
+    with  %Affiliate{} = affiliate <- Repo.get_by(Affiliate, mail: mail) |> Repo.preload(:roles),
+          true <- Argon2.verify_pass(password, affiliate.password_hash) do
+      {:ok, affiliate}
+    else
+      _ ->
+        # Help to mitigate timing attacks
+        Argon2.no_user_verify
+        {:error, :unauthorised}
+    end
   end
 end

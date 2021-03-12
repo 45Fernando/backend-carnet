@@ -20,7 +20,7 @@ defmodule Osunsa.MixProject do
   def application do
     [
       mod: {Osunsa.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :guardian_db]
     ]
   end
 
@@ -44,7 +44,12 @@ defmodule Osunsa.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:argon2_elixir, "~> 2.4"},
+      {:ueberauth, "~> 0.6.3"},
+      {:ueberauth_identity, "~> 0.3.0"},
+      {:guardian, "~> 2.1"},
+      {:guardian_db, "~> 2.1"}
     ]
   end
 

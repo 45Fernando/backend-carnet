@@ -14,9 +14,10 @@ defmodule Osunsa.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Osunsa.PubSub},
       # Start the Endpoint (http/https)
-      OsunsaWeb.Endpoint
+      OsunsaWeb.Endpoint,
       # Start a worker by calling: Osunsa.Worker.start_link(arg)
       # {Osunsa.Worker, arg}
+      {Guardian.DB.Token.SweeperServer, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

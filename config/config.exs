@@ -26,6 +26,42 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Configurando Ueberauth
+config :ueberauth, Ueberauth,
+  base_path: "api/login",
+  providers: [
+    identity: {Ueberauth.Strategy.Identity, [
+      request_path: "api/login",
+      callback_path: "api/login",
+      callback_methods: ["POST"]
+    ]}
+  ]
+
+# Configuracion de Guardian
+config :turnos, Turnos.Guardian,
+  hooks: GuardianDb,
+  issuer: "osunsa",
+  secret_key: "RH7T+LnFWQCxXxGDNjwDu13oqmlZBmpyMeCNTa3+Ig2Wp8wuOrHiiy7GcnycdtCF",
+
+  # We will get round to using these permissions at the end
+  permissions: %{
+    default: [:read_users, :write_users]
+  }
+
+# Configure the authentication plug pipeline
+config :osunsa, OsunsaWeb.Plugs.AuthAccessPipeline,
+  module: OsunsaWeb.Guardian,
+  error_handler: OsunsaWeb.Plugs.AuthErrorHandler
+
+config :guardian, Guardian.DB,
+  # Add your repository module
+  repo: Osunsa.Repo,
+  # default
+  schema_name: "guardian_tokens",
+  # token_types: ["refresh_token"], # store all token types if not set
+  # default: 60 minutes
+  sweep_interval: 120
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

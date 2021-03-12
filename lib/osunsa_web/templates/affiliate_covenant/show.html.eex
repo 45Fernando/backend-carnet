@@ -1,0 +1,18 @@
+<h1>Show Affiliate covenant</h1>
+
+<ul>
+
+  <li>
+    <strong>Fecha alta:</strong>
+    <%= @affiliate_covenant.fecha_alta %>
+  </li>
+
+  <li>
+    <strong>Fecha baja:</strong>
+    <%= @affiliate_covenant.fecha_baja %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.affiliate_covenant_path(@conn, :edit, @affiliate_covenant) %></span>
+<span><%= link "Back", to: Routes.affiliate_covenant_path(@conn, :index) %></span>

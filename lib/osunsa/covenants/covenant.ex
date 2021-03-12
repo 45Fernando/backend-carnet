@@ -4,6 +4,7 @@ defmodule Osunsa.Covenants.Covenant do
 
   schema "covenants" do
     field :name, :string
+    field :description, :string
 
     timestamps()
   end

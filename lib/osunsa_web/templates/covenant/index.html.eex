@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-
+      <th>Description</th>
       <th></th>
     </tr>
   </thead>
@@ -12,6 +12,7 @@
 <%= for covenant <- @covenants do %>
     <tr>
       <td><%= covenant.name %></td>
+      <td><%= covenant.description %></td>
 
       <td>
         <span><%= link "Show", to: Routes.covenant_path(@conn, :show, covenant) %></span>

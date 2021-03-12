@@ -20,6 +20,7 @@ defmodule OsunsaWeb.Router do
     resources "/roles", RolController
     resources "/covenants", CovenantController
     resources "/affiliates", AffiliateController
+    resources "/affiliatescovenants", AffiliateCovenantController
   end
 
   # Other scopes may use custom stacks.
