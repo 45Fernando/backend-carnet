@@ -13,11 +13,15 @@ defmodule OsunsaWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :authenticated do
+    plug OsunsaWeb.Plugs.AuthAccessPipeline
+  end
+
   scope "/", OsunsaWeb do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/roles", RolController
+    resources "/roles", RoleController
     resources "/covenants", CovenantController
     resources "/affiliates", AffiliateController
     resources "/affiliatescovenants", AffiliateCovenantController
@@ -25,7 +29,11 @@ defmodule OsunsaWeb.Router do
 
   # Other scopes may use custom stacks.
   scope "/api", OsunsaWeb do
-     pipe_through :api
+    pipe_through :api
+
+    post "/login", AutentificacionController, :identity_callback
+    # Todo de aca para abajo va a pasar por la autentificacion.
+    pipe_through :authenticated
   end
 
   # Enables LiveDashboard only for development

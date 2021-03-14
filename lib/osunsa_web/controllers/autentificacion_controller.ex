@@ -16,12 +16,9 @@ defmodule OsunsaWeb.AutentificacionController do
         {:ok, jwt, _full_claims} =
           OsunsaWeb.Guardian.encode_and_sign(usuario, %{}, ttl: {1, :days})
 
-      conn
-        |> put_resp_header("authorization", "Bearer #{jwt}")
-        |> render("auth.json", user: usuario, token: jwt, roles: usuario.roles)
-        #|> json(%{data: %{token: jwt}})
-
-
+          conn
+            |> put_resp_header("authorization", "Bearer #{jwt}")
+            |> render("auth.json", user: usuario, token: jwt, roles: usuario.roles)
 
       # Handle our own error to keep it generic
       {:error, _reason} ->

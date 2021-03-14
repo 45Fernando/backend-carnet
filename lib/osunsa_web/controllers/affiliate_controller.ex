@@ -67,12 +67,12 @@ defmodule OsunsaWeb.AffiliateController do
     {:error, :invalid}
   end
 
-  def login_email_password(_mail, nil) do
+  def login_email_password(_correo, nil) do
     {:error, :invalid}
   end
 
-  def login_email_password(mail, password) do
-    with  %Affiliate{} = affiliate <- Repo.get_by(Affiliate, mail: mail) |> Repo.preload(:roles),
+  def login_email_password(correo, password) do
+    with  %Affiliate{} = affiliate <- Repo.get_by(Affiliate, correo: correo) |> Repo.preload(:roles),
           true <- Argon2.verify_pass(password, affiliate.password_hash) do
       {:ok, affiliate}
     else

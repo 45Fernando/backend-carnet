@@ -1,7 +1,11 @@
 {
     "emmet.includeLanguages": {
-    "HTML (EEx)": "html"
-      },
+        "html-eex": "html"
+    },
+    "[elixir]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "JakeBecker.elixir-ls"
+    },
     "beautify.language": {
     "js": {
         "type": [

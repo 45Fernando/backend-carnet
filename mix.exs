@@ -49,7 +49,8 @@ defmodule Osunsa.MixProject do
       {:ueberauth, "~> 0.6.3"},
       {:ueberauth_identity, "~> 0.3.0"},
       {:guardian, "~> 2.1"},
-      {:guardian_db, "~> 2.1"}
+      {:guardian_db, "~> 2.1"},
+      {:not_qwerty123, "~> 2.3.1"}
     ]
   end
 

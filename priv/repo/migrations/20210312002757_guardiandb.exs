@@ -7,7 +7,7 @@ defmodule Osunsa.Repo.Migrations.CreateGuardianDBTokensTable do
       add(:aud, :string, primary_key: true)
       add(:typ, :string)
       add(:iss, :string)
-      add :sub, references(:affiliates)
+      add(:sub, references(:affiliates))
       add(:exp, :bigint)
       add(:jwt, :text)
       add(:claims, :map)

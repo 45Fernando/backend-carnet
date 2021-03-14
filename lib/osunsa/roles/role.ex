@@ -1,4 +1,4 @@
-defmodule Osunsa.Roles.Rol do
+defmodule Osunsa.Roles.Role do
   use Ecto.Schema
   import Ecto.Changeset
 

@@ -6,7 +6,7 @@ defmodule Osunsa.Roles do
   import Ecto.Query, warn: false
   alias Osunsa.Repo
 
-  alias Osunsa.Roles.Rol
+  alias Osunsa.Roles.Role
 
   @doc """
   Returns the list of roles.
@@ -18,7 +18,7 @@ defmodule Osunsa.Roles do
 
   """
   def list_roles do
-    Repo.all(Rol)
+    Repo.all(Role)
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule Osunsa.Roles do
       ** (Ecto.NoResultsError)
 
   """
-  def get_rol!(id), do: Repo.get!(Rol, id)
+  def get_role!(id), do: Repo.get!(Role, id)
 
   @doc """
   Creates a rol.
@@ -49,9 +49,9 @@ defmodule Osunsa.Roles do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_rol(attrs \\ %{}) do
-    %Rol{}
-    |> Rol.changeset(attrs)
+  def create_role(attrs \\ %{}) do
+    %Role{}
+    |> Role.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -67,9 +67,9 @@ defmodule Osunsa.Roles do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_rol(%Rol{} = rol, attrs) do
-    rol
-    |> Rol.changeset(attrs)
+  def update_role(%Role{} = role, attrs) do
+    role
+    |> Role.changeset(attrs)
     |> Repo.update()
   end
 
@@ -85,8 +85,8 @@ defmodule Osunsa.Roles do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_rol(%Rol{} = rol) do
-    Repo.delete(rol)
+  def delete_role(%Role{} = role) do
+    Repo.delete(role)
   end
 
   @doc """
@@ -98,7 +98,7 @@ defmodule Osunsa.Roles do
       %Ecto.Changeset{data: %Rol{}}
 
   """
-  def change_rol(%Rol{} = rol, attrs \\ %{}) do
-    Rol.changeset(rol, attrs)
+  def change_role(%Role{} = role, attrs \\ %{}) do
+    Role.changeset(role, attrs)
   end
 end

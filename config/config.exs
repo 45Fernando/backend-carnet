@@ -28,17 +28,18 @@ config :phoenix, :json_library, Jason
 
 # Configurando Ueberauth
 config :ueberauth, Ueberauth,
-  base_path: "api/login",
+  base_path: "/api/login",
   providers: [
     identity: {Ueberauth.Strategy.Identity, [
-      request_path: "api/login",
-      callback_path: "api/login",
-      callback_methods: ["POST"]
+      request_path: "/api/login",
+      callback_path: "/api/login",
+      callback_methods: ["POST"],
+      uid_field: :correo
     ]}
   ]
 
 # Configuracion de Guardian
-config :turnos, Turnos.Guardian,
+config :osunsa, OsunsaWeb.Guardian,
   hooks: GuardianDb,
   issuer: "osunsa",
   secret_key: "RH7T+LnFWQCxXxGDNjwDu13oqmlZBmpyMeCNTa3+Ig2Wp8wuOrHiiy7GcnycdtCF",
