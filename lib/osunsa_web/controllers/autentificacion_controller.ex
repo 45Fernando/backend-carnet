@@ -6,25 +6,25 @@ defmodule OsunsaWeb.AutentificacionController do
   def identity_callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
     correo = auth.uid
     password = auth.credentials.other.password
-    handle_user_conn(OsunsaWeb.AffiliateController.login_email_password(correo, password), conn)
+    handle_affiliate_conn(OsunsaWeb.AffiliateController.login_email_password(correo, password), conn)
   end
 
   #Es el que asigna el token.
-  defp handle_user_conn(user, conn) do
-    case user do
-      {:ok, usuario} ->
+  defp handle_affiliate_conn(affiliate, conn) do
+    case affiliate do
+      {:ok, affiliado} ->
         {:ok, jwt, _full_claims} =
-          OsunsaWeb.Guardian.encode_and_sign(usuario, %{}, ttl: {1, :days})
+          OsunsaWeb.Guardian.encode_and_sign(affiliado, %{}, ttl: {1, :days})
 
           conn
             |> put_resp_header("authorization", "Bearer #{jwt}")
-            |> render("auth.json", user: usuario, token: jwt, roles: usuario.roles)
+            |> render("auth.json", affiliate: affiliado, token: jwt, roles: affiliado.roles)
 
       # Handle our own error to keep it generic
       {:error, _reason} ->
         conn
         |> put_status(401)
-        |> json(%{message: "user not found"})
+        |> json(%{message: "afiliado not found"})
     end
   end
 

@@ -73,6 +73,12 @@ defmodule Osunsa.Affiliates do
     |> Repo.update()
   end
 
+  def update_affiliate_roles(%Affiliate{} = affiliate, attrs) do
+    affiliate
+    |> Affiliate.update_changeset_roles(attrs)
+    |> Repo.update()
+  end
+
   @doc """
   Deletes a affiliate.
 
