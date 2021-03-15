@@ -3,6 +3,7 @@ defmodule OsunsaWeb.AffiliateCovenantController do
 
   alias Osunsa.AffiliatesCovenants
   alias Osunsa.AffiliatesCovenants.AffiliateCovenant
+  alias Osunsa.Repo
 
   def index(conn, _params) do
     affiliatescovenants = AffiliatesCovenants.list_affiliatescovenants()
@@ -58,5 +59,16 @@ defmodule OsunsaWeb.AffiliateCovenantController do
     conn
     |> put_flash(:info, "Affiliate covenant deleted successfully.")
     |> redirect(to: Routes.affiliate_covenant_path(conn, :index))
+  end
+
+
+  def get_affiliates_per_covenants(conn, _params) do
+    affiliate = conn |> Guardian.Plug.current_resource()
+
+    affiliates = Osunsa.AffiliatesCovenants.get_affiliates_per_covenants(affiliate.id)
+                      |> Repo.preload(:beneficiarios)
+                      |> Repo.preload(:covenants)
+
+    render(conn, "affiliates_covenants.json", affiliates: affiliates, as: :affiliates)
   end
 end

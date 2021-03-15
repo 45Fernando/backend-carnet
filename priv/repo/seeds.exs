@@ -13,6 +13,7 @@ alias Osunsa.Repo
 alias Osunsa.Roles.Role
 alias Osunsa.Covenants.Covenant
 alias Osunsa.Affiliates.Affiliate
+alias Osunsa.AffiliatesCovenants.AffiliateCovenant
 
 # Roles
 roles_data = [
@@ -146,4 +147,70 @@ end)
 
 Enum.each(lista_affiliates, fn data ->
   Osunsa.Affiliates.update_affiliate_roles(data, lista_roles)
+end)
+
+
+#Asociando Afiliados y Convenios
+
+data_affiliates_covenants = [
+  %AffiliateCovenant{
+    titular_id: 2,
+    beneficiario_id: 2,
+    covenant_id: 2,
+    fecha_alta: ~D[2012-03-01],
+    fecha_baja: nil
+  },
+  %AffiliateCovenant{
+    titular_id: 2,
+    beneficiario_id: 3,
+    covenant_id: 2,
+    fecha_alta: ~D[2012-03-01],
+    fecha_baja: nil
+  },
+  %AffiliateCovenant{
+    titular_id: 2,
+    beneficiario_id: 4,
+    covenant_id: 2,
+    fecha_alta: ~D[2012-03-01],
+    fecha_baja: ~D[2022-03-08]
+  },
+  %AffiliateCovenant{
+    titular_id: 2,
+    beneficiario_id: 5,
+    covenant_id: 2,
+    fecha_alta: ~D[2012-03-01],
+    fecha_baja: ~D[2027-06-04]
+  },
+  %AffiliateCovenant{
+    titular_id: 6,
+    beneficiario_id: 6,
+    covenant_id: 2,
+    fecha_alta: ~D[2011-01-11],
+    fecha_baja: nil
+  },
+  %AffiliateCovenant{
+    titular_id: 6,
+    beneficiario_id: 7,
+    covenant_id: 2,
+    fecha_alta: ~D[2015-10-09],
+    fecha_baja: ~D[2036-10-07],
+  },
+  %AffiliateCovenant{
+    titular_id: 8,
+    beneficiario_id: 8,
+    covenant_id: 2,
+    fecha_alta: ~D[2013-03-18],
+    fecha_baja: nil
+  },
+  %AffiliateCovenant{
+    titular_id: 9,
+    beneficiario_id: 9,
+    covenant_id: 2,
+    fecha_alta: ~D[2017-08-13],
+    fecha_baja: nil
+  }
+]
+
+Enum.each(data_affiliates_covenants, fn data ->
+  Repo.insert!(data)
 end)

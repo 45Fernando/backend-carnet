@@ -6,6 +6,8 @@ defmodule Osunsa.Covenants.Covenant do
     field :name, :string
     field :description, :string
 
+    has_many(:affiliate_covenants, Osunsa.AffiliatesCovenants.AffiliateCovenant, foreign_key: :covenant_id)
+
     timestamps()
   end
 

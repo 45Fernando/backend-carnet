@@ -32,8 +32,11 @@ defmodule OsunsaWeb.Router do
     pipe_through :api
 
     post "/login", AutentificacionController, :identity_callback
+
     # Todo de aca para abajo va a pasar por la autentificacion.
     pipe_through :authenticated
+
+    get "/affiliates_covenants", AffiliateCovenantController, :get_affiliates_per_covenants
   end
 
   # Enables LiveDashboard only for development

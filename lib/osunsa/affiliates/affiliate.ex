@@ -15,6 +15,8 @@ defmodule Osunsa.Affiliates.Affiliate do
 
     many_to_many(:roles, Osunsa.Roles.Role, join_through: "affiliates_roles", on_replace: :delete)
     has_many(:guardian_tokens, Osunsa.GuardianTokens.GuardianToken, foreign_key: :sub)
+    has_many(:titular_covenants, Osunsa.AffiliatesCovenants.AffiliateCovenant, foreign_key: :titular_id)
+    has_many(:beneficiario_covenants, Osunsa.AffiliatesCovenants.AffiliateCovenant, foreign_key: :beneficiario_id)
 
     timestamps()
   end

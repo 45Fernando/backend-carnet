@@ -37,6 +37,15 @@ defmodule Osunsa.AffiliatesCovenants do
   """
   def get_affiliate_covenant!(id), do: Repo.get!(AffiliateCovenant, id)
 
+  def get_affiliates_per_covenants(id) do
+    query = from a in AffiliateCovenant,
+            where: a.titular_id == ^id
+
+
+    Repo.all(query)
+
+  end
+
   @doc """
   Creates a affiliate_covenant.
 
