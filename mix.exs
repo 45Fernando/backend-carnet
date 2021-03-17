@@ -50,6 +50,7 @@ defmodule Osunsa.MixProject do
       {:ueberauth_identity, "~> 0.3.0"},
       {:guardian, "~> 2.1"},
       {:guardian_db, "~> 2.1"},
+      {:cors_plug, "~> 2.0"},
       {:not_qwerty123, "~> 2.3.1"}
     ]
   end
