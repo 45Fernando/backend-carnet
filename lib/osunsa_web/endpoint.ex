@@ -52,7 +52,7 @@ defmodule OsunsaWeb.Endpoint do
   plug Plug.Session, @session_options
 
   plug CORSPlug,
-    origin: ["http://localhost:19002"]
+    origin: ["http://localhost:19002", "http://localhost:19006"]
 
   plug OsunsaWeb.Router
 end
