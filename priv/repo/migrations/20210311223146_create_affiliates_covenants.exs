@@ -1,4 +1,4 @@
-defmodule Osunsa.Repo.Migrations.CreateAffiliatesCovenants do
+defmodule Carnet.Repo.Migrations.CreateAffiliatesCovenants do
   use Ecto.Migration
 
   def change do

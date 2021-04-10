@@ -5,15 +5,15 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     Osunsa.Repo.insert!(%Osunsa.SomeSchema{})
+#     Carnet.Repo.insert!(%Carnet.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias Osunsa.Repo
-alias Osunsa.Roles.Role
-alias Osunsa.Covenants.Covenant
-alias Osunsa.Affiliates.Affiliate
-alias Osunsa.AffiliatesCovenants.AffiliateCovenant
+alias Carnet.Repo
+alias Carnet.Roles.Role
+alias Carnet.Covenants.Covenant
+alias Carnet.Affiliates.Affiliate
+alias Carnet.AffiliatesCovenants.AffiliateCovenant
 
 # Roles
 roles_data = [
@@ -71,13 +71,13 @@ affiliates_data = [
  %Affiliate{
    dni: "741852963",
    name: "admin",
-   correo: "admin@osunsa.org.ar",
+   correo: "admin@carnet.org.ar",
    password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash)
  },
  %Affiliate{
   dni: "23079981",
   name: "SILVERA, CARLOS ALBERTO",
-  correo: "csilvera@osunsa.org.ar",
+  correo: "csilvera@carnet.org.ar",
   password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash)
  },
  %Affiliate{
@@ -101,7 +101,7 @@ affiliates_data = [
  %Affiliate{
   dni: "32165329",
   name: "KÖNIG, SERGIO FABIAN",
-  correo: "fkonig@osunsa.org.ar",
+  correo: "fkonig@carnet.org.ar",
   password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash)
  },
  %Affiliate{
@@ -113,13 +113,13 @@ affiliates_data = [
  %Affiliate{
   dni: "33231080",
   name: "MEDINA, RAMIRO MATIAS",
-  correo: "rmedina@osunsa.org.ar",
+  correo: "rmedina@carnet.org.ar",
   password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash)
  },
  %Affiliate{
   dni: "35106814",
   name: "ORQUERA, FERNANDO EXEQUIEL",
-  correo: "forquera@osunsa.org.ar",
+  correo: "forquera@carnet.org.ar",
   password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash)
  }
 ]
@@ -130,11 +130,11 @@ end)
 
 
 # Consiguiendo el changeset de un usuario
-affiliate = Repo.get_by(Affiliate, correo: "admin@osunsa.org.ar")
-affiliate2 = Repo.get_by(Affiliate, correo: "csilvera@osunsa.org.ar")
-affiliate3 = Repo.get_by(Affiliate, correo: "fkonig@osunsa.org.ar")
-affiliate4 = Repo.get_by(Affiliate, correo: "rmedina@osunsa.org.ar")
-affiliate5 = Repo.get_by(Affiliate, correo: "forquera@osunsa.org.ar")
+affiliate = Repo.get_by(Affiliate, correo: "admin@carnet.org.ar")
+affiliate2 = Repo.get_by(Affiliate, correo: "csilvera@carnet.org.ar")
+affiliate3 = Repo.get_by(Affiliate, correo: "fkonig@carnet.org.ar")
+affiliate4 = Repo.get_by(Affiliate, correo: "rmedina@carnet.org.ar")
+affiliate5 = Repo.get_by(Affiliate, correo: "forquera@carnet.org.ar")
 
 lista_affiliates = [affiliate, affiliate2, affiliate3, affiliate4, affiliate5]
 
@@ -146,7 +146,7 @@ Enum.each(lista_affiliates, fn data ->
 end)
 
 Enum.each(lista_affiliates, fn data ->
-  Osunsa.Affiliates.update_affiliate_roles(data, lista_roles)
+  Carnet.Affiliates.update_affiliate_roles(data, lista_roles)
 end)
 
 

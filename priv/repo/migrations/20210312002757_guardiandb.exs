@@ -1,4 +1,4 @@
-defmodule Osunsa.Repo.Migrations.CreateGuardianDBTokensTable do
+defmodule Carnet.Repo.Migrations.CreateGuardianDBTokensTable do
   use Ecto.Migration
 
   def change do

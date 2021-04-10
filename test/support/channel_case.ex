@@ -1,4 +1,4 @@
-defmodule OsunsaWeb.ChannelCase do
+defmodule CarnetWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule OsunsaWeb.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use OsunsaWeb.ChannelCase, async: true`, although
+  by setting `use CarnetWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -21,18 +21,18 @@ defmodule OsunsaWeb.ChannelCase do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import OsunsaWeb.ChannelCase
+      import CarnetWeb.ChannelCase
 
       # The default endpoint for testing
-      @endpoint OsunsaWeb.Endpoint
+      @endpoint CarnetWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Osunsa.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Carnet.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Osunsa.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Carnet.Repo, {:shared, self()})
     end
 
     :ok

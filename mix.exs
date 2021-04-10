@@ -1,9 +1,9 @@
-defmodule Osunsa.MixProject do
+defmodule Carnet.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :osunsa,
+      app: :carnet,
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule Osunsa.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Osunsa.Application, []},
+      mod: {Carnet.Application, []},
       extra_applications: [:logger, :runtime_tools, :guardian_db]
     ]
   end
@@ -51,7 +51,8 @@ defmodule Osunsa.MixProject do
       {:guardian, "~> 2.1"},
       {:guardian_db, "~> 2.1"},
       {:cors_plug, "~> 2.0"},
-      {:not_qwerty123, "~> 2.3.1"}
+      {:not_qwerty123, "~> 2.3.1"},
+      {:rename, "~> 0.1.0", only: :dev}
     ]
   end
 

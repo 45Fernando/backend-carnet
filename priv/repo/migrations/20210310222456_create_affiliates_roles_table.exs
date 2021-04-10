@@ -1,4 +1,4 @@
-defmodule Osunsa.Repo.Migrations.CreateAffiliatesRolesTable do
+defmodule Carnet.Repo.Migrations.CreateAffiliatesRolesTable do
   use Ecto.Migration
 
   def change do

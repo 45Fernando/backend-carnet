@@ -1,4 +1,4 @@
-defmodule Osunsa.DataCase do
+defmodule Carnet.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule Osunsa.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use Osunsa.DataCase, async: true`, although
+  by setting `use Carnet.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,20 +18,20 @@ defmodule Osunsa.DataCase do
 
   using do
     quote do
-      alias Osunsa.Repo
+      alias Carnet.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Osunsa.DataCase
+      import Carnet.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Osunsa.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Carnet.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Osunsa.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Carnet.Repo, {:shared, self()})
     end
 
     :ok

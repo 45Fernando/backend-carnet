@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :osunsa, Osunsa.Repo,
+config :carnet, Carnet.Repo,
   username: "postgres",
   password: "postgres",
-  database: "osunsa_dev",
+  database: "carnet_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -15,7 +15,7 @@ config :osunsa, Osunsa.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :osunsa, OsunsaWeb.Endpoint,
+config :carnet, CarnetWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :osunsa, OsunsaWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :osunsa, OsunsaWeb.Endpoint,
+config :carnet, CarnetWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/osunsa_web/(live|views)/.*(ex)$",
-      ~r"lib/osunsa_web/templates/.*(eex)$"
+      ~r"lib/carnet_web/(live|views)/.*(ex)$",
+      ~r"lib/carnet_web/templates/.*(eex)$"
     ]
   ]
 

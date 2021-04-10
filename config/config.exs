@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :osunsa,
-  ecto_repos: [Osunsa.Repo]
+config :carnet,
+  ecto_repos: [Carnet.Repo]
 
 # Configures the endpoint
-config :osunsa, OsunsaWeb.Endpoint,
+config :carnet, CarnetWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "2L+6yIl7ekllHUASHk5qhG/o5GFv8rGpeLO8fnWT5gsO6fDoVNPOgJ+yVywokzv2",
-  render_errors: [view: OsunsaWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Osunsa.PubSub,
+  render_errors: [view: CarnetWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Carnet.PubSub,
   live_view: [signing_salt: "N+uqFBcD"]
 
 # Configures Elixir's Logger
@@ -39,9 +39,9 @@ config :ueberauth, Ueberauth,
   ]
 
 # Configuracion de Guardian
-config :osunsa, OsunsaWeb.Guardian,
+config :carnet, CarnetWeb.Guardian,
   hooks: GuardianDb,
-  issuer: "osunsa",
+  issuer: "carnet",
   secret_key: "RH7T+LnFWQCxXxGDNjwDu13oqmlZBmpyMeCNTa3+Ig2Wp8wuOrHiiy7GcnycdtCF",
 
   # We will get round to using these permissions at the end
@@ -50,13 +50,13 @@ config :osunsa, OsunsaWeb.Guardian,
   }
 
 # Configure the authentication plug pipeline
-config :osunsa, OsunsaWeb.Plugs.AuthAccessPipeline,
-  module: OsunsaWeb.Guardian,
-  error_handler: OsunsaWeb.Plugs.AuthErrorHandler
+config :carnet, CarnetWeb.Plugs.AuthAccessPipeline,
+  module: CarnetWeb.Guardian,
+  error_handler: CarnetWeb.Plugs.AuthErrorHandler
 
 config :guardian, Guardian.DB,
   # Add your repository module
-  repo: Osunsa.Repo,
+  repo: Carnet.Repo,
   # default
   schema_name: "guardian_tokens",
   # token_types: ["refresh_token"], # store all token types if not set
