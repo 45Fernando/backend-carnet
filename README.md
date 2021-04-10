@@ -1,4 +1,12 @@
-# Osunsa
+# BackEnd de las credenciales electronicas de una obra social.
+
+Tecnologcias usadas:
+
+  * Phoenix Framework
+  * PostGreSQL
+  * RESTapi
+  * JWT
+
 
 To start your Phoenix server:
 
