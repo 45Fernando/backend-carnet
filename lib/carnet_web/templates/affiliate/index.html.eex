@@ -19,7 +19,6 @@
       <td><%= affiliate.name %></td>
       <td><%= affiliate.correo %></td>
       <td><%= affiliate.avatar %></td>
-      <td><%= affiliate.password_hash %></td>
 
       <td>
         <span><%= link "Show", to: Routes.affiliate_path(@conn, :show, affiliate) %></span>

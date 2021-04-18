@@ -1,34 +1,36 @@
 {
-    "emmet.includeLanguages": {
-        "html-eex": "html"
+    "git.ignoreLimitWarning": true,
+    "editor.formatOnSave": true,
+    "html.format.contentUnformatted": "",
+    "files.associations": {
+      "*.js": "javascript",
+      "*.eex": "html-eex",
+      "*.leex": "html-eex"
     },
-    "[elixir]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "JakeBecker.elixir-ls"
+    "emmet.includeLanguages": {
+    "HTML (EEx)": "html"
     },
     "beautify.language": {
-    "js": {
-        "type": [
-        "javascript",
-        "json",
-        "jsonc"
+        "js": {
+          "type": [
+            "javascript",
+            "json",
+            "jsonc"
+          ],
+          "filename": [
+            ".jshintrc",
+            ".jsbeautifyrc"
+          ]
+        },
+        "css": [
+          "css",
+          "less",
+          "scss"
         ],
-        "filename": [
-        ".jshintrc",
-        ".jsbeautifyrc"
+        "html": [
+          "htm",
+          "html",
+          "HTML (EEx)"
         ]
-    },
-    "css": [
-        "css",
-        "less",
-        "scss"
-    ],
-    "html": [
-        "htm",
-        "html",
-        "HTML (EEx)"
-    ]
-    },
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "modifications"
+      }
 }

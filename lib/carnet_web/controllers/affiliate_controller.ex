@@ -61,8 +61,8 @@ defmodule CarnetWeb.AffiliateController do
     |> redirect(to: Routes.affiliate_path(conn, :index))
   end
 
-  #Funcion para comparar el correo y la contraseña con la base de datos y autorizar el ingreso
-  #O no.
+  # Funcion para comparar el correo y la contraseña con la base de datos y autorizar el ingreso
+  # O no.
   def login_email_password(nil, _password) do
     {:error, :invalid}
   end
@@ -72,13 +72,14 @@ defmodule CarnetWeb.AffiliateController do
   end
 
   def login_email_password(correo, password) do
-    with  %Affiliate{} = affiliate <- Repo.get_by(Affiliate, correo: correo) |> Repo.preload(:roles),
-          true <- Argon2.verify_pass(password, affiliate.password_hash) do
+    with %Affiliate{} = affiliate <-
+           Repo.get_by(Affiliate, correo: correo) |> Repo.preload(:roles),
+         true <- Argon2.verify_pass(password, affiliate.password_hash) do
       {:ok, affiliate}
     else
       _ ->
         # Help to mitigate timing attacks
-        Argon2.no_user_verify
+        Argon2.no_user_verify()
         {:error, :unauthorised}
     end
   end

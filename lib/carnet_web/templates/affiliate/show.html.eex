@@ -22,11 +22,6 @@
     <%= @affiliate.avatar %>
   </li>
 
-  <li>
-    <strong>Password hash:</strong>
-    <%= @affiliate.password_hash %>
-  </li>
-
 </ul>
 
 <span><%= link "Edit", to: Routes.affiliate_path(@conn, :edit, @affiliate) %></span>
