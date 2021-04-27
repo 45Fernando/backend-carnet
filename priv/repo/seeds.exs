@@ -78,7 +78,8 @@ affiliates_data = [
     dni: "23079981",
     name: "SILVERA, CARLOS ALBERTO",
     correo: "csilvera@osunsa.org.ar",
-    password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash)
+    password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash),
+    avatar: "/avatars/23079981.jpg"
   },
   %Affiliate{
     dni: "27701132",
@@ -126,7 +127,8 @@ affiliates_data = [
     dni: "24697412",
     name: "PARTY, MARIA GRACIELA",
     correo: "partymariagraciela@gmail.com",
-    password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash)
+    password_hash: Argon2.add_hash("123456") |> Map.get(:password_hash),
+    avatar: "/avatars/24697412.jpg"
   },
   %Affiliate{
     dni: "25729497",

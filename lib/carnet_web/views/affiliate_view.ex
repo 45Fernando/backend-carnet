@@ -15,8 +15,9 @@ defmodule CarnetWeb.AffiliateView do
       id: affiliate.id,
       name: affiliate.name,
       dni: affiliate.dni,
-      correo: affiliate.correo
-      #avatars: TurnosWeb.Uploaders.Avatar.urls({user.avatar, user}),
+      correo: affiliate.correo,
+      avatar: affiliate.avatar
+      # avatars: TurnosWeb.Uploaders.Avatar.urls({user.avatar, user}),
     }
   end
 end
